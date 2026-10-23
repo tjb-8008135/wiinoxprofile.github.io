@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gwińe'eskw - Contact</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <canvas id="bgCanvas"></canvas>
+    <div id="nav-container"></div>
+    <main>
+        <div class="contactheader">
+             <h1>gwin&#x0301;e'eskw</h1>
+        </div>
+        <section class="contact-form-card">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Naahl wanis? (Your Name)</label>
+                    <input type="text" id="name" name="name" required placeholder="Jane Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">sileta (Send a letter/email)</label>
+                    <input type="email" id="email" name="email" required placeholder="name@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">aguhl hasag̲an? (What do you want?)</label>
+                    <textarea id="message" name="message" rows="4" required placeholder="Write your message here..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span>hlaa hlisgwina? (Are you finished?)</span>
+                </button>
+            </form>
+        </section>
+
+       
+        <dialog id="thankYouModal" class="popup-modal">
+            <div class="popup-box">
+                <h2>T'ooyak̲siý ńiin!</h2>
+                <p>(Thank you)! Your message has been saved.</p>
+                <button type="button" id="closeModalBtn" class="modal-close-btn">Close</button>
+            </div>
+        </dialog>
+    </main>
+    
+    <script src="../scripts.js"></script>
+    <script src="../background.js"></script>
+</body>
+</html>
