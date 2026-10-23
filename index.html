@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="bgCanvas"></canvas>
+  <div id="nav-container"></div>
+
+  <main>
+    <div class="homeheader">
+      <h1>N&#x0301;it, Aam wilaa wilina?</h1>
+      <h5>(Hello, How are you doing?)</h5>
+      <div class="home-gif-container">
+        <img src="./images/aamwilaa.GIF" class="home-gif-media" alt="Illustrated character on a path">
+      </div>
+    </div>
+
+    <div class="mood-container">
+      <h2>Aam wilaa hina? (How are you feeling?)</h2>
+      
+      <div class="mood-buttons">
+        <button class="mood-btn" data-mood="happy">
+          <span class="btn-emoji">😊</span> luu'aamhl goodiy&#x0301;
+        </button>
+        <button class="mood-btn" data-mood="sad">
+          <span class="btn-emoji">😢</span> luug&#x0332;etkwhl goodiy&#x0301;
+        </button>
+        <button class="mood-btn" data-mood="mad">
+          <span class="btn-emoji">😠</span> siipkw goodiy&#x0301;
+        </button>
+        <button class="mood-btn" data-mood="tired">
+          <span class="btn-emoji">🥱</span> plakskw n&#x0302;iiy&#x0301;
+        </button>
+      </div>
+
+      <div class="mood-display" id="moodDisplay">
+        <div class="face-stage" id="faceStage">✨</div>
+        <div class="mood-label" id="moodLabel">Select how you feel</div>
+      </div>
+    </div>
+  </main>
+
+  <script src="scripts.js"></script>
+  <script src="background.js"></script>
+</body>
+</html>
