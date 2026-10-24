@@ -1,4 +1,4 @@
-# Wiinox | Nisga'a Multimedia & Formline Artist
+# Wiinox | Nisga'a Multimedia & NonTraditional Formline Artist
 
 > Portfolio and digital showcase for contemporary Indigenous art, nontraditional formline, and multimedia storytelling.
 
