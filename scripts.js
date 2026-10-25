@@ -217,7 +217,7 @@ async function updateViewCount() {
   try {
     // Namespace: unique identifier (e.g. your domain or username)
     // Key: the specific page or identifier
-    const response = await fetch('https://script.google.com/macros/s/AKfycbx6cH7KTcw3DF1-Bt6GS2S4VaAWknaAiHGk4Y-Zyf83AmA-ZDlYIrnn1KNJaKL8P4B0cw/exec');
+    const response = await fetch('https://script.google.com/macros/s/AKfycbwbCWHJpMPKoV1rtRu3yfLWbWbpm9ja9U7uBfhUuiI8-RHt9KuBjMguxOM_2mys9EhxfA/exec');
     const data = await response.json();
     counterElement.textContent = data.value.toLocaleString();
   } catch (error) {
