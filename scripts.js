@@ -1,8 +1,5 @@
-  /* ==========================================================================
-     1. DYNAMIC NAVIGATION
-     ========================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
   const navContainer = document.getElementById("nav-container");
-
   if (navContainer) {
     const isSubpage = window.location.pathname.includes("/pages/");
     const homeLink = isSubpage ? "../index.html" : "index.html";
@@ -11,11 +8,12 @@
     const contactLink = isSubpage ? "contact.html" : "pages/contact.html";
 
     navContainer.innerHTML = `
-      <nav class="navbar">
-        <button class="nav-toggle" id="menuToggle" aria-expanded="false" aria-label="Toggle navigation">
+      <nav class="navbar" aria-label="Main navigation">
+        <button class="nav-toggle" id="menuToggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
           <span class="logo">gwilḵ'a</span>
           <span class="toggle-icon">▼</span>
         </button>
+
         <div class="nav-menu-wrapper" id="menuWrapper">
           <ul class="nav-links">
             <li><a href="${homeLink}">haẃ</a></li>
@@ -31,17 +29,16 @@
     const menuWrapper = document.getElementById("menuWrapper");
     const navLinks = document.querySelectorAll(".nav-links a");
 
-   
-    navLinks.forEach(link => {
+    navLinks.forEach((link) => {
       if (link.href === window.location.href) {
         link.classList.add("active-link");
       }
     });
 
-    menuToggle.addEventListener("click", (e) => {
-      e.stopPropagation();
+    menuToggle.addEventListener("click", (event) => {
+      event.stopPropagation();
       const isOpen = menuWrapper.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
       menuToggle.classList.toggle("active");
     });
 
@@ -54,9 +51,6 @@
     });
   }
 
-  /* ==========================================================================
-     2. MOOD / FEELINGS WIDGET (index.html)
-     ========================================================================== */
   const moodButtons = document.querySelectorAll(".mood-btn");
   const faceStage = document.getElementById("faceStage");
   const moodLabel = document.getElementById("moodLabel");
@@ -64,15 +58,20 @@
   if (moodButtons.length > 0 && faceStage && moodLabel) {
     const moods = {
       happy: { face: "😄", label: "lukwil aam! (Very Good)", anim: "anim-bounce" },
-      sad:   { face: "🥺", label: "agwii miilugwin! (dance it out)", anim: "anim-rain" },
-      mad:   { face: "😡", label: "ksinaahlxkw (breathe)", anim: "anim-shake" },
+      sad: { face: "🥺", label: "agwii miilugwin! (dance it out)", anim: "anim-rain" },
+      mad: { face: "😡", label: "ksinaahlxkw (breathe)", anim: "anim-shake" },
       tired: { face: "😴", label: "hahlais ńiiý ẃii sa. (I worked all day.)", anim: "anim-float" }
     };
 
-    moodButtons.forEach(btn => {
+    moodButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
-        moodButtons.forEach(b => b.classList.remove("active"));
+        moodButtons.forEach((b) => {
+          b.classList.remove("active");
+          b.setAttribute("aria-pressed", "false");
+        });
+
         btn.classList.add("active");
+        btn.setAttribute("aria-pressed", "true");
 
         const selectedMood = moods[btn.dataset.mood];
         if (selectedMood) {
@@ -84,9 +83,6 @@
     });
   }
 
-  /* ==========================================================================
-     3. CONTACT FORM & MODAL (contact.html)
-     ========================================================================== */
   const contactForm = document.getElementById("contactForm");
   const submitBtn = document.getElementById("submitBtn");
   const thankYouModal = document.getElementById("thankYouModal");
@@ -94,55 +90,48 @@
 
   if (closeModalBtn && thankYouModal) {
     closeModalBtn.addEventListener("click", () => thankYouModal.close());
-
-    // Close when clicking overlay backdrop outside the modal dialog box
-    thankYouModal.addEventListener("click", (e) => {
+    thankYouModal.addEventListener("click", (event) => {
       const rect = thankYouModal.getBoundingClientRect();
-      const isInDialog = (
-        rect.top <= e.clientY &&
-        e.clientY <= rect.top + rect.height &&
-        rect.left <= e.clientX &&
-        e.clientX <= rect.left + rect.width
-      );
-      if (!isInDialog) {
-        thankYouModal.close();
-      }
+      const isInside =
+        rect.top <= event.clientY &&
+        event.clientY <= rect.top + rect.height &&
+        rect.left <= event.clientX &&
+        event.clientX <= rect.left + rect.width;
+
+      if (!isInside) thankYouModal.close();
     });
   }
 
   if (contactForm && submitBtn) {
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyG4HIYATwF4YgP5yW5hq_RpKNKou_zjFp6FUN6G9Ka2Jq2xKLnFZdqpLgQ7Aym5H8b1w/exec";
 
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
       submitBtn.disabled = true;
       const originalText = submitBtn.innerHTML;
       submitBtn.innerHTML = "<span>Sending...</span>";
 
       fetch(SCRIPT_URL, {
         method: "POST",
-        body: new FormData(contactForm)
+        body: new FormData(contactForm),
       })
-      .then(res => res.json())
-      .then(() => {
-        contactForm.reset();
-        if (thankYouModal) thankYouModal.showModal();
-      })
-      .catch(() => {
-        alert("There was an error submitting. Please try again.");
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
-      });
+        .then((response) => response.json())
+        .then(() => {
+          contactForm.reset();
+          if (thankYouModal) thankYouModal.showModal();
+        })
+        .catch(() => {
+          alert("There was an error submitting. Please try again.");
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        });
     });
   }
 
-  /* ==========================================================================
-     4. CATALOG VIEWER LOGIC (services.html)
-     ========================================================================== */
   const catalogPages = [...document.querySelectorAll(".catalog-page")];
-
   if (catalogPages.length > 0) {
     const jumps = [...document.querySelectorAll(".jump")];
     const panel = document.getElementById("contents-panel");
@@ -161,6 +150,7 @@
 
     function showPage(index) {
       if (index < 0 || index >= catalogPages.length) return;
+
       if (index !== current) {
         catalogPages[current].hidden = true;
         current = index;
@@ -171,13 +161,13 @@
       if (next) next.disabled = current === catalogPages.length - 1;
       if (progress) progress.textContent = `Page ${current + 1} of ${catalogPages.length}`;
 
-      jumps.forEach((btn, i) => {
-        if (i === current) btn.setAttribute("aria-current", "page");
-        else btn.removeAttribute("aria-current");
+      jumps.forEach((button, i) => {
+        if (i === current) button.setAttribute("aria-current", "page");
+        else button.removeAttribute("aria-current");
       });
 
       closeContents();
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: "smooth" });
       catalogPages[current].focus({ preventScroll: true });
     }
 
@@ -193,7 +183,7 @@
       });
     }
 
-    jumps.forEach(button => {
+    jumps.forEach((button) => {
       button.addEventListener("click", () => showPage(Number(button.dataset.page)));
     });
 
@@ -208,4 +198,4 @@
       window.lucide.createIcons();
     }
   }
-})
+});
