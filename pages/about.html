@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>adaawaḵdi - About</title>
-    
-   
-    <link rel="stylesheet" href="../styles.css">
-</head>
-<body>
-        <canvas id="bgCanvas"></canvas>
-        <div id="nav-container"></div>
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="../scripts.js" defer></script>
+    <script src="../background.js" defer></script>
+  </head>
+  <body>
+    <canvas id="bgCanvas" aria-hidden="true"></canvas>
+    <div id="nav-container"></div>
 
-    
     <main>
-                <div class="aboutheader">
-                     <h1>adaawa<span class="k-underline">k</span>di</h1>
-                    <h5>(To tell a story)</h5>
-                </div>
-            <section class="about-content">
+      <header class="about-hero">
+        <p class="eyebrow">About</p>
+        <h1>adaawaḵdi</h1>
+        <p class="home-subtitle">(To tell a story)</p>
+      </header>
 
-                    <div class=" about-content-title"><h2>Naa n&#x0301;iinis?</h2>
-                        <h5>(Who are you?)</h5>
-                        </div>
-                    
-                    <div class="about-body">
-                                <div class="about-image-wrapper">
-                                    <img src="../images/wii-nox.png" alt="wii nox" class="faded-corner-img">
-                                </div>
-        
-                        <div class="about-text">
-                                    <p>
+      <section class="about-content">
+        <div class="story-grid">
+          <div class="story-image-wrap">
+            <img src="../images/wii-nox.png" alt="Portrait of Terra Barton" />
+          </div>
+
+          <div class="story-copy">
+            <div class="about-content-title">
+              <h2>Naa ńiinis?</h2>
+              <p class="home-subtitle">(Who are you?)</p>
+            </div>
+
+            <div class="quote-block">
+              “I am a creative storyteller, artist, and knowledge keeper who blends memory, media,
+              design, and place into a living visual language.”
+            </div>
+
+            <div class="about-text">
+              <p>
                                      W&#x0301;ii No<span class="x-underline">x</span>hl way&#x0301; ii
                                      Ksim la<span class="x-underline">x</span>sgiik n&#x0301;iiy&#x0301;<br>
                                      Wilps Sim'oogit Gwiix M&#x0301;aaw&#x0301; wil witgwiy&#x0301;<br>
@@ -40,52 +47,53 @@
                                     The house I am from belongs to Chief Gwiix M&#x0301;aaw&#x0301;. I live in the traditional territory of the
                                     Lheidli T'enneh First Nation, which is located in what is now known as Prince George, 
                                     British Columbia. I am Nis<span class="g-underline">g</span>a'a.</p>
-                                </div>
-                                  
-                                <div class="about-text-bottom">
-                                            <p>Terra Barton is a multi-talented creative powerhouse who masterfully bridges the worlds of cutting-edge technology, contemporary media, 
-                                            and deeply rooted ancestral traditions. As a multimedia graphic design artist, book illustrator, and writer, she weaves complex narratives 
-                                             visually and textually, translating rich cultural imagery and contemporary design concepts across both digital landscapes and physical pages. 
-                                            Her profound connection to heritage shines through her work as a nontraditional formline artist, knowledge keeper, and intricate beader of hats 
-                                            and jewelry, preserving and reshaping indigenous art forms for modern audiences while honoring ancient roots.<br> <br>This creative expression is seamlessly 
-                                            balanced by her analytical prowess as a videographer and GIS/GPS technician, roles in which she uses data-driven precision, mapping technology, 
-                                            and moving image to document stories and capture the shifting dimensions of the world around her. Whether she is designing a digital portfolio, 
-                                            drafting local geometric patterns, or beads onto a brim, Terra stands as a passionate crafter whose diverse skills breathe life into community 
-                                            storytelling.</p>
-                                     </div> 
-                                     
-                                     <div class="video-container">
-                                            <div class="rev-video">
-                                                <iframe width="1080" 
-                                                    height="1000"  
-                                                    src="https://www.youtube.com/embed/h64BjmTELzc?si=6fJYMA32M_HdlmZK" 
-                                                    title="YouTube video player" 
-                                                    frameborder="0" 
-                                                    allow="accelerometer; 
-                                                    autoplay; clipboard-write; 
-                                                    encrypted-media; 
-                                                    gyroscope; 
-                                                    picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                                                </iframe>
-                                             </div> 
-                                              
-                                                <p class="about-text">
-                                                       Check out video on Youtube. Click
-                                                        <a href="https://www.youtube.com/watch?v=h64BjmTELzc" class="custom-inline-link" target="_blank" rel="noopener noreferrer">here</a>.<br>
-                                                        Don't forget to like the video and subscribe to the channel.<br> Thank you for your support!
-                                                    </p>
+             
+            </div>
 
-                                            </div>
-                                        </div>    
-                            </div>
-                        </div>
-              </section>
-     </main>
+            <div class="about-stats">
+              <div class="stat-card">
+                <strong>10+</strong>
+                <span>Creative disciplines</span>
+              </div>
+              <div class="stat-card">
+                <strong>Story</strong>
+                <span>Driven practice</span>
+              </div>
+              <div class="stat-card">
+                <strong>Community</strong>
+                <span>Rooted impact</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-   
-        <script src="../scripts.js"></script>
+        <div class="about-text-bottom">
+          <p>
+            Terra Barton is a multidisciplinary creative whose work moves fluidly between technology,
+            visual storytelling, and ancestral tradition. As a multimedia artist, graphic designer,
+            illustrator, writer, and knowledge keeper, she creates work that is deeply personal while
+            remaining accessible, vibrant, and rooted in community memory.
+          </p>
+        </div>
+
+        <div class="video-card">
+          <div class="rev-video">
+            <iframe
+              width="100%"
+              height="500"
+              src="https://www.youtube.com/embed/h64BjmTELzc?si=6fJYMA32M_HdlmZK"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="../scripts.js"></script>
     <script src="../background.js"></script>
-</body>
+    <script data-goatcounter="https://script.google.com/macros/s/AKfycbwbCWHJpMPKoV1rtRu3yfLWbWbpm9ja9U7uBfhUuiI8-RHt9KuBjMguxOM_2mys9EhxfA/exec"></script>
+  </body>
 </html>
-
-
