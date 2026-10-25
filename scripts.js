@@ -31,7 +31,7 @@
     const menuWrapper = document.getElementById("menuWrapper");
     const navLinks = document.querySelectorAll(".nav-links a");
 
-    // Highlight active link based on current path
+   
     navLinks.forEach(link => {
       if (link.href === window.location.href) {
         link.classList.add("active-link");
