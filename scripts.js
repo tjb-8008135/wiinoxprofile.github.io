@@ -204,26 +204,3 @@ document.addEventListener("DOMContentLoaded", () => {
         if (toggle) toggle.focus();
       }
     });
-
-    if (window.lucide && typeof window.lucide.createIcons === "function") {
-      window.lucide.createIcons();
-    }
-  }
-})
-async function updateViewCount() {
-  const counterElement = document.getElementById('view-count');
-  if (!counterElement) return;
-
-  try {
-    // Namespace: unique identifier (e.g. your domain or username)
-    // Key: the specific page or identifier
-    const response = await fetch('https://script.google.com/macros/s/AKfycbwbCWHJpMPKoV1rtRu3yfLWbWbpm9ja9U7uBfhUuiI8-RHt9KuBjMguxOM_2mys9EhxfA/exec');
-    const data = await response.json();
-    counterElement.textContent = data.value.toLocaleString();
-  } catch (error) {
-    console.error('Error fetching visitor count:', error);
-    counterElement.textContent = '—';
-  }
-}
-
-document.addEventListener('DOMContentLoaded', updateViewCount);
