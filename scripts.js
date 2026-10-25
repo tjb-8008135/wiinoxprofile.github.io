@@ -1,4 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
   /* ==========================================================================
      1. DYNAMIC NAVIGATION
      ========================================================================== */
@@ -203,5 +202,10 @@ document.addEventListener("DOMContentLoaded", () => {
         closeContents();
         if (toggle) toggle.focus();
       }
-    })
+    });
+
+    if (window.lucide && typeof window.lucide.createIcons === "function") {
+      window.lucide.createIcons();
+    }
   }
+})
