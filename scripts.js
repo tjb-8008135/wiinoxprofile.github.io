@@ -204,3 +204,4 @@ document.addEventListener("DOMContentLoaded", () => {
         if (toggle) toggle.focus();
       }
     })
+  }
