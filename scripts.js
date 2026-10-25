@@ -203,4 +203,4 @@ document.addEventListener("DOMContentLoaded", () => {
         closeContents();
         if (toggle) toggle.focus();
       }
-    });
+    })
