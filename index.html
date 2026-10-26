@@ -63,42 +63,5 @@
       </section>
     </main>
 
-   <script>
-  (function() {
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxEqYkdLhnxw9LPmuEaPw88Jkw8Gqf_hwzFhZZZ33wLg9Vb-PIei7534I7yap__ZK7clg/exec";
-
-    const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
-    const deviceType = isMobile ? "Mobile" : "Desktop";
-
-    let trafficSource = "Direct";
-    if (document.referrer) {
-      if (document.referrer.includes("google.")) trafficSource = "Organic Search";
-      else if (document.referrer.includes("github.io")) trafficSource = "Referral";
-      else trafficSource = "Referral";
-    }
-
-    let visitorId = localStorage.getItem("site_visitor_id");
-    if (!visitorId) {
-      visitorId = "usr_" + Math.random().toString(36).substring(2, 8);
-      localStorage.setItem("site_visitor_id", visitorId);
-    }
-
-    const payload = {
-      path: window.location.pathname,
-      source: trafficSource,
-      device: deviceType,
-      visitor: visitorId
-    };
-
-    fetch(WEB_APP_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "text/plain" },
-      body: JSON.stringify(payload)
-    }).catch(function(err) {
-      console.warn("View tracking error:", err);
-    });
-  })();
-</script>
   </body>
 </html>
