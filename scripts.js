@@ -199,3 +199,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+fetch("https://script.google.com/macros/s/AKfycbxmtHoAj0HzB8Gqm5YHXMgVxfTmhrleRvkXE-wf5LCove3fShJkLQtglUmBzJlaoIiwEw/exec", {
+  method: "POST",
+  headers: { "Content-Type": "text/plain;charset=utf-8" },
+  body: JSON.stringify({
+    date: "2026-10-26",
+    dayOfWeek: "Monday",
+    pageUrl: "https://tjb-8008135.github.io/wiinoxprofile.github.io/index.html",
+    deviceCategory: "All Devices",
+    viewCount: 1350
+  })
+})
+.then(res => res.json())
+.then(data => console.log(data));
