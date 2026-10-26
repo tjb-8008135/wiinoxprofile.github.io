@@ -210,5 +210,4 @@ fetch("https://script.google.com/macros/s/AKfycbyAeFv2UEH52w3bhqKpmaSCu_Eju8yGGx
     viewCount: 1350
   })
 })
-.then(res => res.json())
-.then(data => console.log(data));
+
